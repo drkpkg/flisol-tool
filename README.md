@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Flisol Tool - Herramienta para registro para flisol 
 
-Things you may want to cover:
+ 
+###### TODO
 
-* Ruby version
+    - CRUDS
 
-* System dependencies
 
-* Configuration
+## Requerimientos
+ 
+ - Rbenv 
+ - Ruby 5.2.0
+ - Nodejs
+ - Npm
+ - Yarn
 
-* Database creation
+## Montar en Desarrollo
 
-* Database initialization
+## Montar en Produccion
 
-* How to run the test suite
+## Contribuir
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
