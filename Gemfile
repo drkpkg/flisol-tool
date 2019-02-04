@@ -38,5 +38,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Added gems
-gem 'authenticate'
+gem 'devise'
 gem 'rubocop', '~> 0.63.1', require: false
