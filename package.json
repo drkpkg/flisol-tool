@@ -1,0 +1,12 @@
+{
+  "name": "flisol-tool",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  },
+  "version": "1.0.0",
+  "description": "Herramienta para administracion de flisol",
+  "main": "index.js",
+  "author": "Drkpkg <daniel.uremix@gmail.com>",
+  "license": "MIT"
+}
