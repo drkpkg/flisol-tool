@@ -10,10 +10,108 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_04_194749) do
+ActiveRecord::Schema.define(version: 2019_02_04_222558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "distros", force: :cascade do |t|
+    t.string "name"
+    t.bigint "package_id"
+    t.text "description"
+    t.string "version"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_distros_on_package_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "install_distro_infos", force: :cascade do |t|
+    t.bigint "people_id"
+    t.bigint "trouble_id"
+    t.bigint "distro_id"
+    t.boolean "installed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["distro_id"], name: "index_install_distro_infos_on_distro_id"
+    t.index ["people_id"], name: "index_install_distro_infos_on_people_id"
+    t.index ["trouble_id"], name: "index_install_distro_infos_on_trouble_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "city_id"
+    t.float "lat"
+    t.float "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_locations_on_city_id"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.string "lastname"
+    t.string "email"
+    t.bigint "location_id"
+    t.bigint "event_id"
+    t.string "age"
+    t.bigint "gender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_people_on_event_id"
+    t.index ["gender_id"], name: "index_people_on_gender_id"
+    t.index ["location_id"], name: "index_people_on_location_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.bigint "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
+
+  create_table "troubles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +125,14 @@ ActiveRecord::Schema.define(version: 2019_02_04_194749) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "states"
+  add_foreign_key "distros", "packages"
+  add_foreign_key "install_distro_infos", "distros"
+  add_foreign_key "install_distro_infos", "people", column: "people_id"
+  add_foreign_key "install_distro_infos", "troubles"
+  add_foreign_key "locations", "cities"
+  add_foreign_key "people", "events"
+  add_foreign_key "people", "genders"
+  add_foreign_key "people", "locations"
+  add_foreign_key "states", "countries"
 end

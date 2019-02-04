@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  people: one
+  trouble: one
+  distro: one
+  installed: false
+
+two:
+  people: two
+  trouble: two
+  distro: two
+  installed: false

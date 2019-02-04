@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>People:</strong>
+  <%= @install_distro_info.people %>
+</p>
+
+<p>
+  <strong>Trouble:</strong>
+  <%= @install_distro_info.trouble %>
+</p>
+
+<p>
+  <strong>Distro:</strong>
+  <%= @install_distro_info.distro %>
+</p>
+
+<p>
+  <strong>Installed:</strong>
+  <%= @install_distro_info.installed %>
+</p>
+
+<%= link_to 'Edit', edit_install_distro_info_path(@install_distro_info) %> |
+<%= link_to 'Back', install_distro_infos_path %>

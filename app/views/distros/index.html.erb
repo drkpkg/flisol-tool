@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Distros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Package</th>
+      <th>Description</th>
+      <th>Version</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @distros.each do |distro| %>
+      <tr>
+        <td><%= distro.name %></td>
+        <td><%= distro.package %></td>
+        <td><%= distro.description %></td>
+        <td><%= distro.version %></td>
+        <td><%= link_to 'Show', distro %></td>
+        <td><%= link_to 'Edit', edit_distro_path(distro) %></td>
+        <td><%= link_to 'Destroy', distro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Distro', new_distro_path %>

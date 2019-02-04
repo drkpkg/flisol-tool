@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Install Distro Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>People</th>
+      <th>Trouble</th>
+      <th>Distro</th>
+      <th>Installed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @install_distro_infos.each do |install_distro_info| %>
+      <tr>
+        <td><%= install_distro_info.people %></td>
+        <td><%= install_distro_info.trouble %></td>
+        <td><%= install_distro_info.distro %></td>
+        <td><%= install_distro_info.installed %></td>
+        <td><%= link_to 'Show', install_distro_info %></td>
+        <td><%= link_to 'Edit', edit_install_distro_info_path(install_distro_info) %></td>
+        <td><%= link_to 'Destroy', install_distro_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Install Distro Info', new_install_distro_info_path %>
