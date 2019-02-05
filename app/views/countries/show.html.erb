@@ -10,5 +10,9 @@
   <%= @country.code %>
 </p>
 
+<p><strong>Code:</strong>
+  <%= image_tag @country.image %>
+</p>
+
 <%= link_to 'Edit', edit_country_path(@country) %> |
 <%= link_to 'Back', countries_path %>
