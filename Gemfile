@@ -7,9 +7,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.1'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem "font-awesome-rails"
+
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'mini_magick', '~> 4.8'
@@ -26,6 +28,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'solargraph'
 end
 
 group :test do
